@@ -1,6 +1,9 @@
 ---
 title: "csdid with RC/Panel"
-format: html
+format: 
+    html: default
+    pdf: default
+    ipynb: default
 ---
 
 First. Some other tools. Please copy [this](https://friosavila.github.io/stpackages/fra/fra.ado) file, run it, and type:
