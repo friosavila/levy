@@ -1,0 +1,53 @@
+---
+title: "csdid with RC/Panel"
+format: html
+---
+
+First. Some other tools. Please copy [this](https://friosavila.github.io/stpackages/fra/fra.ado) file, run it, and type:
+
+```stata
+** just for data example
+ssc install frause
+** for installing csdid2
+fra install fra
+fra install csdid2
+```
+
+Now the example. 
+
+First Run csdid with panel data
+
+```{stata}
+frause mpdta, clear
+set seed 1
+csdid lemp, ivar( countyreal) gvar(first) time(year)
+```
+
+Then, drop at randome 10% of the data, so technically have unbalanced panel. It can be estimated using repeated crossection
+
+```{stata}
+drop if runiform()<.1
+** as Panel with unbalanced Data
+csdid lemp,  ivar( countyreal) gvar(first) time(year)
+```
+
+
+```{stata}
+** As RC
+csdid lemp,  cluster( countyreal) gvar(first) time(year)
+```
+
+The second one produces odd results, which is not unexpected. 
+
+Now using the residuals Idea:
+
+```{stata}
+** Getting residuals
+reghdfe lemp, abs( year countyreal) resid
+** AS RC but with residuals
+csdid _reghdfe_resid, cluster( countyreal) gvar(first) time(year)
+```
+
+I think this produces much better results!
+Not sure how would this translate in other frameworks, tho.
+

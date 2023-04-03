@@ -1,0 +1,48 @@
+---
+title: "LIMEW"
+subtitle: "Methodological Differences: 2007-10 vs 2019-20"            
+author: "Fernando Rios-Avila"
+format: 
+    revealjs: default
+    pptx: default
+    pdf: default
+---
+
+## Introduction {.smaller}
+
+LIMEW is one of the Levy Institute Flagship programs that aims to provide a more comprehensive measure of welfare by accounting for other goods and services households have access to.
+
+In contrast with traditional Money Metric measures, LIMEW also includes:
+
+- **Valuations of time**: LIMEW adds a valuation of how much time people dedidacate to household production, using a component of opportunity cost.
+
+- **Income from wealth**: LIMEW incoporates the flow value of this component to the main householder/older.
+
+- **Public Consumption**: LIMEW incoportes values for public services like education, security, access to water, public transportation, etc.
+
+- **Public Transfers**: LIMEW adds monetary Transfers such as Medicaid/medicare, foodstamps, unemployment, etc. 
+
+- **Taxes**: LIMEW substract from disposable constrains given by tax collections
+
+## Methodological Differences {.smaller}
+
+Between 2007-10 and 2019-2020, quite few methodological constrains had to be introduced.
+
+1. One of the main changes was the Matching Algorithm. Until 2013/16 we were using Statistical matching with coarse rank matching. 2019 forward we started using weight split matching. This improves matching quality using all donor/recipient data. 
+   
+2. In the past, wealth was constructed using statistical matching from SCF^[Survey of Consumer Finances], which is available every 3 years.
+   
+   For 2020, we use SCF2019 ageing assets and home values based on 2020 Returns (and median Price change)
+
+3. Starting in 2016, (value) Medicaid and Medicare data is no longer easility avaiable. For 2019-2020, values for these items need to be constructed from scratch.
+
+4. For 2020, we include CPS^[March - Current Population Survey] aggregates on CARES and CRRSAA act, as part of Goverment-household transfers, but without their NIPA counterparts
+
+## Other Changes {.smaller}
+
+1. ATUS^[American Time Use Survey] 2020 warns about the use of Time use Data due to Covid. 
+   
+   This may translate into data not being representative of annual typical activities in the US for 2020.
+
+2. Other Changes in the Constructions were more in terms of implementation and programming, providing a more modular set process.
+   
