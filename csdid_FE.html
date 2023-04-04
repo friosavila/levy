@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="csdid_FE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="csdid_FE.ipynb" download="csdid_FE.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></div>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="..\friosavila.github.io\csdid_FE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="csdid_FE.ipynb" download="csdid_FE.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -145,7 +145,7 @@ See Callaway and Sant'Anna (2021) for details</code></pre>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="kw">if</span> runiform()&lt;.1</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>** <span class="kw">as</span> Panel with unbalanced Data</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>csdid lemp,  ivar( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>csdid lemp lpop,  ivar( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(239 observations deleted)
 Panel is not balanced
@@ -154,28 +154,28 @@ Will use observations with Pair balanced (observed at t0 and t1)
 Difference-in-difference with Multiple Time Periods
 
                                                          Number of obs = 2,227
-Outcome model  : regression adjustment
-Treatment model: none
+Outcome model  : least squares
+Treatment model: inverse probability
 ------------------------------------------------------------------------------
              | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 g2004        |
- t_2003_2004 |  -.0062926   .0225497    -0.28   0.780    -.0504892     .037904
- t_2003_2005 |  -.0960718   .0357584    -2.69   0.007    -.1661569   -.0259866
- t_2003_2006 |  -.1633641   .0417271    -3.92   0.000    -.2451478   -.0815804
- t_2003_2007 |  -.1295976     .03268    -3.97   0.000    -.1936492   -.0655459
+ t_2003_2004 |  -.0106321   .0213814    -0.50   0.619     -.052539    .0312747
+ t_2003_2005 |  -.0997826   .0338647    -2.95   0.003    -.1661562   -.0334089
+ t_2003_2006 |   -.164467   .0421525    -3.90   0.000    -.2470845   -.0818495
+ t_2003_2007 |  -.1372957    .029445    -4.66   0.000    -.1950069   -.0795845
 -------------+----------------------------------------------------------------
 g2006        |
- t_2003_2004 |  -.0056589   .0259825    -0.22   0.828    -.0565836    .0452658
- t_2004_2005 |   .0014362   .0200922     0.07   0.943    -.0379438    .0408162
- t_2005_2006 |   .0007738   .0189435     0.04   0.967    -.0363548    .0379024
- t_2005_2007 |  -.0424921   .0208849    -2.03   0.042    -.0834256   -.0015585
+ t_2003_2004 |  -.0102468   .0250207    -0.41   0.682    -.0592865    .0387928
+ t_2004_2005 |  -.0012623   .0190316    -0.07   0.947    -.0385636    .0360389
+ t_2005_2006 |   .0018708   .0192118     0.10   0.922    -.0357835    .0395252
+ t_2005_2007 |  -.0439769   .0200335    -2.20   0.028    -.0832418    -.004712
 -------------+----------------------------------------------------------------
 g2007        |
- t_2003_2004 |   .0351093   .0170156     2.06   0.039     .0017593    .0684593
- t_2004_2005 |   .0040527   .0170957     0.24   0.813    -.0294543    .0375596
- t_2005_2006 |  -.0326528   .0197723    -1.65   0.099    -.0714057    .0061001
- t_2006_2007 |  -.0367615   .0166226    -2.21   0.027    -.0693412   -.0041819
+ t_2003_2004 |   .0313098    .015797     1.98   0.047     .0003482    .0622713
+ t_2004_2005 |   .0023558   .0162905     0.14   0.885    -.0295731    .0342846
+ t_2005_2006 |  -.0317725   .0198823    -1.60   0.110    -.0707412    .0071962
+ t_2006_2007 |  -.0399225   .0163005    -2.45   0.014    -.0718709   -.0079741
 ------------------------------------------------------------------------------
 Control: Never Treated
 
@@ -184,35 +184,35 @@ See Callaway and Sant'Anna (2021) for details</code></pre>
 </div>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>** As RC</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>csdid lemp,  <span class="kw">cluster</span>( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>csdid lemp lpop,  <span class="kw">cluster</span>( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>............
 Difference-in-difference with Multiple Time Periods
 
                                                          Number of obs = 2,261
-Outcome model  : regression adjustment
-Treatment model: none
+Outcome model  : least squares
+Treatment model: inverse probability
                            (Std. err. adjusted for 500 clusters in countyreal)
 ------------------------------------------------------------------------------
              | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 g2004        |
- t_2003_2004 |  -.1173444   .1395652    -0.84   0.400    -.3908872    .1561983
- t_2003_2005 |  -.2553488   .2439786    -1.05   0.295     -.733538    .2228404
- t_2003_2006 |  -.3608912   .1722595    -2.10   0.036    -.6985137   -.0232687
- t_2003_2007 |   -.305137    .112898    -2.70   0.007     -.526413    -.083861
+ t_2003_2004 |  -.0126297   .0345604    -0.37   0.715    -.0803669    .0551075
+ t_2003_2005 |  -.0913197   .0384773    -2.37   0.018    -.1667338   -.0159055
+ t_2003_2006 |  -.2070359    .049318    -4.20   0.000    -.3036974   -.1103744
+ t_2003_2007 |   -.136554   .0317776    -4.30   0.000     -.198837   -.0742711
 -------------+----------------------------------------------------------------
 g2006        |
- t_2003_2004 |   .1768316   .0896097     1.97   0.048     .0011998    .3524635
- t_2004_2005 |  -.0357726   .0452432    -0.79   0.429    -.1244476    .0529023
- t_2005_2006 |  -.0432086   .0603687    -0.72   0.474     -.161529    .0751118
- t_2005_2007 |  -.0878768   .0868235    -1.01   0.311    -.2580476    .0822941
+ t_2003_2004 |  -.0098464   .0303239    -0.32   0.745    -.0692801    .0495873
+ t_2004_2005 |  -.0381135   .0237243    -1.61   0.108    -.0846122    .0083852
+ t_2005_2006 |  -.0141839   .0318463    -0.45   0.656    -.0766015    .0482337
+ t_2005_2007 |  -.0230668   .0350484    -0.66   0.510    -.0917604    .0456267
 -------------+----------------------------------------------------------------
 g2007        |
- t_2003_2004 |   .0827665   .0756403     1.09   0.274    -.0654857    .2310188
- t_2004_2005 |  -.0469567   .0626924    -0.75   0.454    -.1698316    .0759182
- t_2005_2006 |  -.1242509   .0631495    -1.97   0.049    -.2480217   -.0004801
- t_2006_2007 |  -.0591166   .0838097    -0.71   0.481    -.2233807    .1051475
+ t_2003_2004 |   .0596817   .0309245     1.93   0.054    -.0009293    .1202926
+ t_2004_2005 |  -.0467024   .0294592    -1.59   0.113    -.1044414    .0110365
+ t_2005_2006 |  -.0388017    .034514    -1.12   0.261     -.106448    .0288445
+ t_2006_2007 |  -.0431742   .0312701    -1.38   0.167    -.1044625     .018114
 ------------------------------------------------------------------------------
 Control: Never Treated
 
@@ -222,62 +222,77 @@ See Callaway and Sant'Anna (2021) for details</code></pre>
 <p>The second one produces odd results, which is not unexpected.</p>
 <p>Now using the residuals Idea:</p>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>** Getting residuals</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>reghdfe lemp, <span class="fu">abs</span>( <span class="fu">year</span> countyreal) <span class="kw">resid</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>** Getting residuals wo <span class="fu">year</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>:reghdfe lemp, <span class="fu">abs</span>(countyreal) <span class="kw">resid</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>** AS RC but with residuals</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>csdid _reghdfe_resid, <span class="kw">cluster</span>( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>csdid _reghdfe_resid lpop, <span class="kw">cluster</span>( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(dropped 1 singleton observations)
-(MWFE estimator converged in 5 iterations)
-
-HDFE Linear regression                            Number of obs   =      2,260
-Absorbing 2 HDFE groups                           F(   0,   1757) =          .
-                                                  Prob &gt; F        =          .
-                                                  R-squared       =     0.9935
-                                                  Adj R-squared   =     0.9916
-                                                  Within R-sq.    =     0.0000
-                                                  Root MSE        =     0.1378
-
-------------------------------------------------------------------------------
-        lemp | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
--------------+----------------------------------------------------------------
-       _cons |    5.78452   .0028984  1995.80   0.000     5.778835    5.790205
-------------------------------------------------------------------------------
-
-Absorbed degrees of freedom:
------------------------------------------------------+
- Absorbed FE | Categories  - Redundant  = Num. Coefs |
--------------+---------------------------------------|
-        year |         5           0           5     |
-  countyreal |       499           1         498     |
------------------------------------------------------+
-............
+<pre><code>............
 Difference-in-difference with Multiple Time Periods
 
                                                          Number of obs = 2,260
-Outcome model  : regression adjustment
-Treatment model: none
+Outcome model  : least squares
+Treatment model: inverse probability
                            (Std. err. adjusted for 499 clusters in countyreal)
 ------------------------------------------------------------------------------
              | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 g2004        |
- t_2003_2004 |  -.0144231   .0247539    -0.58   0.560    -.0629399    .0340936
- t_2003_2005 |  -.0843181   .0330384    -2.55   0.011    -.1490721   -.0195641
- t_2003_2006 |  -.1555145   .0381466    -4.08   0.000    -.2302805   -.0807484
- t_2003_2007 |  -.1105423   .0356191    -3.10   0.002    -.1803544   -.0407302
+ t_2003_2004 |  -.0235323   .0248084    -0.95   0.343     -.072156    .0250913
+ t_2003_2005 |  -.0901505   .0312695    -2.88   0.004    -.1514376   -.0288633
+ t_2003_2006 |  -.1579142   .0380608    -4.15   0.000     -.232512   -.0833165
+ t_2003_2007 |   -.119084   .0323402    -3.68   0.000    -.1824697   -.0556984
 -------------+----------------------------------------------------------------
 g2006        |
- t_2003_2004 |  -.0105662   .0261878    -0.40   0.687    -.0618934     .040761
- t_2004_2005 |  -.0051092   .0202832    -0.25   0.801    -.0448636    .0346453
- t_2005_2006 |  -.0040826   .0182119    -0.22   0.823    -.0397772     .031612
- t_2005_2007 |  -.0347436   .0202887    -1.71   0.087    -.0745088    .0050216
+ t_2003_2004 |  -.0141947    .024901    -0.57   0.569    -.0629997    .0346104
+ t_2004_2005 |  -.0051773   .0197164    -0.26   0.793    -.0438208    .0334661
+ t_2005_2006 |    .001378   .0197077     0.07   0.944    -.0372484    .0400043
+ t_2005_2007 |  -.0374866   .0194234    -1.93   0.054    -.0755558    .0005825
 -------------+----------------------------------------------------------------
 g2007        |
- t_2003_2004 |   .0254408   .0185718     1.37   0.171    -.0109592    .0618407
- t_2004_2005 |  -.0038647   .0166224    -0.23   0.816     -.036444    .0287147
- t_2005_2006 |   -.036962   .0187402    -1.97   0.049     -.073692   -.0002319
- t_2006_2007 |   -.027827   .0166274    -1.67   0.094     -.060416     .004762
+ t_2003_2004 |   .0218685   .0177405     1.23   0.218    -.0129023    .0566393
+ t_2004_2005 |  -.0041205   .0160708    -0.26   0.798    -.0356186    .0273776
+ t_2005_2006 |  -.0344927    .019066    -1.81   0.070    -.0718613     .002876
+ t_2006_2007 |  -.0310214   .0164804    -1.88   0.060    -.0633224    .0012796
+------------------------------------------------------------------------------
+Control: Never Treated
+
+See Callaway and Sant'Anna (2021) for details</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>** Getting residuals</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>:reghdfe lemp, <span class="fu">abs</span>(countyreal <span class="fu">year</span>) <span class="kw">resid</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>** AS RC but with residuals</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>csdid _reghdfe_resid lpop, <span class="kw">cluster</span>( countyreal) gvar(first) time(<span class="fu">year</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>............
+Difference-in-difference with Multiple Time Periods
+
+                                                         Number of obs = 2,260
+Outcome model  : least squares
+Treatment model: inverse probability
+                           (Std. err. adjusted for 499 clusters in countyreal)
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+g2004        |
+ t_2003_2004 |   -.022436   .0249588    -0.90   0.369    -.0713544    .0264824
+ t_2003_2005 |  -.0898449   .0312509    -2.87   0.004    -.1510956   -.0285942
+ t_2003_2006 |  -.1577356   .0380741    -4.14   0.000    -.2323594   -.0831118
+ t_2003_2007 |  -.1192472   .0322187    -3.70   0.000    -.1823947   -.0560998
+-------------+----------------------------------------------------------------
+g2006        |
+ t_2003_2004 |  -.0139274   .0249804    -0.56   0.577    -.0628881    .0350333
+ t_2004_2005 |  -.0055821   .0197258    -0.28   0.777     -.044244    .0330798
+ t_2005_2006 |   .0011665   .0196647     0.06   0.953    -.0373756    .0397087
+ t_2005_2007 |  -.0369996   .0194188    -1.91   0.057    -.0750597    .0010606
+-------------+----------------------------------------------------------------
+g2007        |
+ t_2003_2004 |   .0215591   .0178184     1.21   0.226    -.0133643    .0564825
+ t_2004_2005 |  -.0041803   .0160877    -0.26   0.795    -.0357116    .0273509
+ t_2005_2006 |  -.0343154   .0190396    -1.80   0.071    -.0716322    .0030015
+ t_2006_2007 |   -.030636   .0164794    -1.86   0.063    -.0629351    .0016631
 ------------------------------------------------------------------------------
 Control: Never Treated
 

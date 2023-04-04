@@ -31,13 +31,13 @@ Then, drop at randome 10% of the data, so technically have unbalanced panel. It 
 ```{stata}
 drop if runiform()<.1
 ** as Panel with unbalanced Data
-csdid lemp,  ivar( countyreal) gvar(first) time(year)
+csdid lemp lpop,  ivar( countyreal) gvar(first) time(year)
 ```
 
 
 ```{stata}
 ** As RC
-csdid lemp,  cluster( countyreal) gvar(first) time(year)
+csdid lemp lpop,  cluster( countyreal) gvar(first) time(year)
 ```
 
 The second one produces odd results, which is not unexpected. 
@@ -45,11 +45,19 @@ The second one produces odd results, which is not unexpected.
 Now using the residuals Idea:
 
 ```{stata}
-** Getting residuals
-reghdfe lemp, abs( year countyreal) resid
+** Getting residuals wo year
+qui:reghdfe lemp, abs(countyreal) resid
 ** AS RC but with residuals
-csdid _reghdfe_resid, cluster( countyreal) gvar(first) time(year)
+csdid _reghdfe_resid lpop, cluster( countyreal) gvar(first) time(year)
 ```
+
+```{stata}
+** Getting residuals
+qui:reghdfe lemp, abs(countyreal year) resid
+** AS RC but with residuals
+csdid _reghdfe_resid lpop, cluster( countyreal) gvar(first) time(year)
+```
+
 
 I think this produces much better results!
 Not sure how would this translate in other frameworks, tho.
