@@ -8,7 +8,7 @@
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.290">
+  <meta name="generator" content="quarto-1.3.306">
 
   <meta name="author" content="Fernando Rios-Avila">
   <title>LIMEW</title>
@@ -351,26 +351,52 @@ Fernando Rios-Avila
 </section>
 <section id="methodological-differences" class="slide level2 smaller">
 <h2>Methodological Differences</h2>
-<p>Between 2007-10 and 2019-2020, quite few methodological constrains had to be introduced.</p>
-<ol type="1">
-<li><p>One of the main changes was the Matching Algorithm. Until 2013/16 we were using Statistical matching with coarse rank matching. 2019 forward we started using weight split matching. This improves matching quality using all donor/recipient data.</p></li>
+<p>Between 2007-10 and 2019-2020, quite few methodological changes had to be introduced.</p>
+<ul>
+<li><p>Some of the changes relate to how data has been statistically matched (Changes in Strategy)</p></li>
+<li><p>Some relate to changes in the construction of aggregates.</p></li>
+<li><p>Some based on the nature of the underlying data</p></li>
+</ul>
+</section>
+<section id="matching-atus-scf-and-asec" class="slide level2 smaller">
+<h2>Matching: ATUS SCF and ASEC</h2>
+<p>One of the biggest methodologyical changes has been switching the matching algorithm.</p>
+<ul>
+<li><p>Until 2013 we were using Statistical matching with coarse rank matching. In this strategy, not all donor observations were used in the match, which was a problem when there is a large disparity in sample sizes between donor and recipient.</p></li>
+<li><p>2016 forward we started using weight split matching, with PCA and clustering. This improves matching quality using all donor/recipient data.</p></li>
+<li><p>This affects both SCF and ATUS matching.</p></li>
+</ul>
+</section>
+<section id="timing-2019-2020" class="slide level2 smaller">
+<h2>Timing 2019-2020</h2>
+<p>Because the time difference for comparison are so close together, there is a lot of information that cannot be updated. (distributors and allocators, or donor samples)</p>
+<ul>
 <li><p>In the past, wealth was constructed using statistical matching from SCF<sup>1</sup>, which is available every 3 years.</p>
-<p>For 2020, we use SCF2019 ageing assets and home values based on 2020 Returns (and median Price change)</p></li>
-<li><p>Starting in 2016, (value) Medicaid and Medicare data is no longer easility avaiable. For 2019-2020, values for these items need to be constructed from scratch.</p></li>
-<li><p>For 2020, we include CPS<sup>2</sup> aggregates on CARES and CRRSAA act, as part of Goverment-household transfers, but without their NIPA counterparts</p></li>
-</ol>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Survey of Consumer Finances</p></li><li id="fn2"><p>March - Current Population Survey</p></li></ol></aside></section>
+<p>For 2020, we use SCF2019, but <strong>age</strong> assets and home values based on 2020 Returns and median Price changes.</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Survey of Consumer Finances</p></li></ol></aside></section>
+<section id="transfers" class="slide level2 smaller">
+<h2>Transfers</h2>
+<p>Given the transfers that were COVID specific in 2020, we had to modify LIMEW 2020 to partially account for the changes. Specifically Care Act and CRRSA act.</p>
+<ul>
+<li><p>This information may need to be considered carefully, because ASEC overestimates how many people qualified for that transfer.</p></li>
+<li><p>On the other hand, using NIPA consistent totals would understate how much families benefited from the transfer.</p></li>
+</ul>
+<p>Starting in 2016, (value) Medicaid and Medicare data is no longer easility avaiable. For 2019-2020, values for these items need to be re-constructed.</p>
+<ul>
+<li>Because of this, some differences may arise between 2007-10 and 2019-20 Medicare/Medicaid allocated data.</li>
+</ul>
+</section>
 <section id="other-changes" class="slide level2 smaller">
 <h2>Other Changes</h2>
 <ol type="1">
 <li><p>ATUS<sup>1</sup> 2020 warns about the use of Time use Data due to Covid.</p>
 <p>This may translate into data not being representative of annual typical activities in the US for 2020.</p></li>
-<li><p>Other Changes in the Constructions were more in terms of implementation and programming, providing a more modular set process.</p></li>
 </ol>
 <div class="footer footer-default">
 
 </div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>American Time Use Survey</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>American Time Use Survey</p></li></ol></aside></section>
 
     </div>
   </div>

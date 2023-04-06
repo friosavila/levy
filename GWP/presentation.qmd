@@ -24,19 +24,45 @@ In contrast with traditional Money Metric measures, LIMEW also includes:
 
 - **Taxes**: LIMEW substract from disposable constrains given by tax collections
 
-## Methodological Differences {.smaller}
+## Methodological Differences  {.smaller}
 
-Between 2007-10 and 2019-2020, quite few methodological constrains had to be introduced.
+Between 2007-10 and 2019-2020, quite few methodological changes had to be introduced. 
 
-1. One of the main changes was the Matching Algorithm. Until 2013/16 we were using Statistical matching with coarse rank matching. 2019 forward we started using weight split matching. This improves matching quality using all donor/recipient data. 
+- Some of the changes relate to how data has been statistically matched (Changes in Strategy)
+
+- Some relate to changes in the construction of aggregates.
+
+- Some based on the nature of the underlying data
+
+## Matching: ATUS SCF and ASEC {.smaller}
+
+One of the biggest methodologyical changes has been switching the matching algorithm.
+
+- Until 2013 we were using Statistical matching with coarse rank matching. In this strategy, not all donor observations were used in the match, which was a problem when there is a large disparity in sample sizes between donor and recipient.
+
+- 2016 forward we started using weight split matching, with PCA and clustering. This improves matching quality using all donor/recipient data. 
+
+- This affects both SCF and ATUS matching.
+
+## Timing 2019-2020 {.smaller}
+
+Because the time difference for comparison are so close together, there is a lot of information that cannot be updated. (distributors and allocators, or donor samples)
    
-2. In the past, wealth was constructed using statistical matching from SCF^[Survey of Consumer Finances], which is available every 3 years.
+- In the past, wealth was constructed using statistical matching from SCF^[Survey of Consumer Finances], which is available every 3 years.
    
-   For 2020, we use SCF2019 ageing assets and home values based on 2020 Returns (and median Price change)
+   For 2020, we use SCF2019, but **age** assets and home values based on 2020 Returns and median Price changes.
 
-3. Starting in 2016, (value) Medicaid and Medicare data is no longer easility avaiable. For 2019-2020, values for these items need to be constructed from scratch.
+## Transfers {.smaller}
 
-4. For 2020, we include CPS^[March - Current Population Survey] aggregates on CARES and CRRSAA act, as part of Goverment-household transfers, but without their NIPA counterparts
+Given the transfers that were COVID specific in 2020, we had to modify LIMEW 2020 to partially account for the changes. Specifically Care Act and CRRSA act. 
+
+- This information may need to be considered carefully, because ASEC overestimates how many people qualified for that transfer. 
+
+- On the other hand, using NIPA consistent totals would understate how much families benefited from the transfer.
+
+Starting in 2016, (value) Medicaid and Medicare data is no longer easility avaiable. For 2019-2020, values for these items need to be re-constructed.
+
+- Because of this, some differences may arise between 2007-10 and 2019-20 Medicare/Medicaid allocated data. 
 
 ## Other Changes {.smaller}
 
@@ -44,5 +70,4 @@ Between 2007-10 and 2019-2020, quite few methodological constrains had to be int
    
    This may translate into data not being representative of annual typical activities in the US for 2020.
 
-2. Other Changes in the Constructions were more in terms of implementation and programming, providing a more modular set process.
    
